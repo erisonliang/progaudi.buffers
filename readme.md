@@ -1,0 +1,3 @@
+# Goal of this package
+
+When you request buffer of size N from `System.Buffers.MemoryPool<T>` returns `IMemoryOwner<T>` which can hold `Memory<T>` at least N elements. That proves to be a problem in some scenarios like passing serialized data back to your users. You need to pass them one more field: actual length of data. This pool will always trim `IMemory<T>` to requested length. It will also provide a property with an access to underlying buffer.

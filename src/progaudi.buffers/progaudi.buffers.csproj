@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>progaudi.buffers</AssemblyName>
+    <Description>When you request buffer of size N from `System.Buffers.MemoryPool&lt;T&gt;` returns `IMemoryOwner&lt;T&gt;` which can hold `Memory&lt;T&gt;` at least N elements. That proves to be a problem in some scenarios like passing serialized data back to your users. You need to pass them one more field: actual length of data. This pool will always trim `IMemory&lt;T&gt;` to requested length. It will also provide a property with an access to underlying buffer.</Description>
+    <Title>Fixed length implementation of MemoryPool&lt;T&gt;</Title>
+    <RootNamespace>ProGaudi.Buffers</RootNamespace>
+    <Product>progaudi.buffers</Product>
+    <Copyright>Copyright © 2018</Copyright>
+    <PackageTags>memorypool;pool;memory</PackageTags>
+    <PackageProjectUrl>https://github.com/progaudi/progaudi.buffers</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/progaudi/progaudi.buffers/blob/master/LICENSE</PackageLicenseUrl>
+    <Authors>roman-kozachenko;aensidhe</Authors>
+    <Company>progaudi</Company>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' ">
+    <TargetFrameworks>net45;net46;netstandard1.4;netstandard2.0;netcoreapp2.1</TargetFrameworks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(OS)' != 'Windows_NT' ">
+    <TargetFrameworks>netstandard1.4;netstandard2.0;netcoreapp2.1</TargetFrameworks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Version>1.0.0</Version>
+
+    <GenerateAssemblyTitleAttribute>true</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyProductAttribute>true</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>true</GenerateAssemblyCopyrightAttribute>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion> <!-- default to allowing all language features -->
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <!-- Optional: Declare that the Repository URL can be published to NuSpec -->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <!-- Optional: Embed source files that are not tracked by the source control manager to the PDB -->
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <!-- Optional: Include PDB in the built .nupkg -->
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="11.1.0">
+        <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="System.Memory" Version="4.5.1" />
+    <PackageReference Include="System.Buffers" Version="4.5.0" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta-63102-01" Condition=" '$(IsDocker)' != 'defined' ">
+        <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+</Project>
