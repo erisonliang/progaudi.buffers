@@ -27,7 +27,7 @@ namespace ProGaudi.Buffers.Tests
                 var fixedLength = buffer.ShouldBeOfType<FixedLengthOwner<object>>();
                 var underlying = fixedLength.GetUnderlyingBuffer(true);
                 underlying.Dispose();
-                Should.Throw<ObjectDisposedException>(() => { var _ = buffer.Memory; });
+                Should.Throw<ObjectDisposedException>(() => { var _ = fixedLength.Memory; });
                 Should.Throw<ObjectDisposedException>(() => { var _ = buffer.Memory; });
             }
         }
