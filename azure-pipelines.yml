@@ -33,6 +33,8 @@ jobs:
     name: Hosted VS2017
   condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
   steps:
+    - template: .azure/install.yml
+
     - task: DownloadSecureFile@1
       inputs:
         secureFile: progaudi.snk
