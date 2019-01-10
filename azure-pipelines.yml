@@ -1,3 +1,7 @@
+variables:
+  sln: progaudi.buffers.sln
+  tests: tests/progaudi.buffers.tests/progaudi.buffers.tests.csproj
+
 jobs:
 - job: macOs
   pool:
