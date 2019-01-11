@@ -8,16 +8,20 @@
     <Copyright>Copyright © 2018</Copyright>
     <PackageTags>memorypool;pool;memory</PackageTags>
     <PackageProjectUrl>https://github.com/progaudi/progaudi.buffers</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/progaudi/progaudi.buffers/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Authors>roman-kozachenko;aensidhe</Authors>
     <Company>progaudi</Company>
   </PropertyGroup>
+
+  <ItemGroup>
+      <None Include="../../LICENSE" Pack="true" PackagePath="" />
+  </ItemGroup>
 
   <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' ">
     <TargetFrameworks>net45;net461;net462;net47;net471;netstandard1.4;netstandard2.0;netcoreapp2.1;netcoreapp2.2</TargetFrameworks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(OS)' != 'Windows_NT' ">
-    <TargetFrameworks>netstandard1.4;netstandard2.0;netcoreapp2.1</TargetFrameworks>
+    <TargetFrameworks>netstandard1.4;netstandard2.0;netcoreapp2.1;netcoreapp2.2</TargetFrameworks>
   </PropertyGroup>
 
   <PropertyGroup>
