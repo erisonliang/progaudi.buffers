@@ -6,7 +6,7 @@ resources:
   repositories:
     - repository: templates
       type: github
-      name: progaudi/azure-pipeline
+      name: progaudi/azure-pipelines
       endpoint: progaudi
 
 jobs:
