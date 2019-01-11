@@ -2,5 +2,11 @@ variables:
   sln: progaudi.buffers.sln
   tests: tests/progaudi.buffers.tests/progaudi.buffers.tests.csproj
 
+resources:
+  repositories:
+    - repository: templates
+      type: github
+      name: progaudi/azure-pipeline
+
 jobs:
-- template: .azure/nuget.yml
+- template: library/nuget.yml@templates
